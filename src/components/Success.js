@@ -4,6 +4,23 @@ import AppBar from 'material-ui/AppBar'
 import { List, ListItem } from 'material-ui/List'
 import RaisedButton from 'material-ui/RaisedButton'
 export class Success extends Component {
+
+	componentDidMount = () => {
+
+		fetch('http://localhost:8080/people', {
+			method: 'POST',
+			body: JSON.stringify(this.props.values),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(res => console.log(res.json()))
+			.then((data) => {
+				//this.setState({ contacts: data })
+				console.log(data);
+			})
+			.catch(console.log)
+	}
 	continue = e => {
 		e.preventDefault();
 		//backend processing of the form

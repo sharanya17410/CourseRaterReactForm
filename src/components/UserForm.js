@@ -79,7 +79,7 @@ export class UserForm extends Component {
 						values={values} />
 				)
 			case 6:
-				return <Success />
+				return <Success values={values} />
 		}
 	}
 }
